@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "name": "Layanan & Informasi",
+      "url": "https://drive.google.com/drive/folders/1MaRZo24M2gHJbOou7ZGoEjgIF4cYmVez?usp=drive_link",
+      "icon": "📋"
+    },
+    {
+      "name": "Pendampingan & Pendataan",
+      "url": "https://drive.google.com/drive/folders/1MaRZo24M2gHJbOou7ZGoEjgIF4cYmVez?usp=drive_link",
+      "icon": "📊"
+    },
+    {
+      "name": "Media Sosial",
+      "url": "medsos.html",
+      "icon": "📱"
+    },
+    {
+      "name": "Laman Resmi DKP Gunungkidul",
+      "url": "https://dkp.gunungkidulkab.go.id/",
+      "icon": "🌐"
+    }
+  ]
+}

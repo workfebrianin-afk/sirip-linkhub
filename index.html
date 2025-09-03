@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRIP - Dinas Kelautan dan Perikanan Gunungkidul</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Logo DKP Gunungkidul" class="logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-placeholder">
+                    <div class="logo-icon">🏛️</div>
+                    <span>Logo</span>
+                </div>
+            </div>
+            
+            <div class="header-content">
+                <h1 class="main-title">SIRIP</h1>
+                <p class="subtitle">Sistem Informasi Rekapitulasi dan Pencatatan Usaha Perikanan</p>
+                <h2 class="department">Dinas Kelautan dan Perikanan</h2>
+                <h3 class="region">Kabupaten Gunungkidul</h3>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="links-container" id="linksContainer">
+                <!-- Links akan dimuat dari JSON -->
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="address">
+                    📍 Jl. Veteran No.3, Madusari, Wonosari, Kec. Wonosari, Kabupaten Gunungkidul, DIY
+                </p>
+                <p class="copyright">
+                    © 2024 Dinas Kelautan dan Perikanan Kabupaten Gunungkidul
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Load data dari JSON
+        fetch('data/links.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('linksContainer');
+                
+                data.links.forEach(link => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = link.url;
+                    linkElement.className = 'link-item';
+                    linkElement.target = '_blank';
+                    
+                    linkElement.innerHTML = `
+                        <div class="link-icon">${link.icon}</div>
+                        <span class="link-text">${link.name}</span>
+                        <div class="link-arrow">→</div>
+                    `;
+                    
+                    container.appendChild(linkElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading links:', error);
+                // Fallback jika JSON gagal dimuat
+                document.getElementById('linksContainer').innerHTML = `
+                    <div class="error-message">
+                        <p>Maaf, terjadi kesalahan saat memuat data. Silakan hubungi administrator.</p>
+                    </div>
+                `;
+            });
+    </script>
+</body>
+</html>
